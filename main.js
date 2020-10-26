@@ -40,7 +40,7 @@ function toggleHeart(heart)
 
 function handleError(error)
 {
-  let modal = document.getElementById("modal")
+  let modal = document.getElementById("modal-message")
 
   modal.innerText = error;
   modal.classList.remove("hidden");
