@@ -2,7 +2,19 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
+
+const modal = document.getElementById("modal");
+modal.setAttribute("class", "hidden");
+
+let likeHeart = document.querySelectorAll(".like-glyph");
+
+
+likeHeart.forEach(like => like.addEventListener("click", likeEvent));
+
+
+function likeEvent() {
+  console.log("I have been liked!");
+}
 
 
 
