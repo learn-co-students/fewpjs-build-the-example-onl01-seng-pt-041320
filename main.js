@@ -5,11 +5,16 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 document.addEventListener("DOMContentLoaded", () => {
-  let modal = document.querySelector("#modal");
-  modal.className = "hidden";
-  //modal = !modal;
+  //let modal = document.querySelector("#modal");
+  //modal.className = "hidden";
+  
 });
 
+let likes = document.querySelectorAll(".like");
+
+likes.addEventListener("click", () => {
+  mimicServerCall();
+});
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
