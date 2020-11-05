@@ -4,33 +4,34 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  let modal = document.querySelector("#modal");
-  
-  document.addEventListener("click", (event) = {
-    
-    if(event.target && event.target.className === "like-glyph"){
-      mimicServerCall()
-      .then(value) => {
-        console.log(value)
-        if(event.target.innerHTML == EMPTY_HEART){
-          event.target.innerHTML = FULL_HEART;
-          event.target.classList.add("activated-heart");
-        } else {
-          event.target.innerHTML = EMPTY_HEART;
-          event.target.classList.remove("activated-heart");
-        }
-      }
-    }
-  })
-  .catch((error) => {
+const likes = document.querySelectorAll(".like");
+
+//Changes color of heart and mimics a server request
+
+function heartchanger(event){
+  console.log(FULL_HEART);
+  //event.target.innerHTML = FULL_HEART;
+  if(event.target.innerHTML == EMPTY_HEART){
+    mimicServerCall()
+    .catch((error) => {
     modal.classList.remove("hidden");
     document.querySelector("#modal-message").innerHTML = error;
     setTimeout(function(){
       modal.classList.add("hidden")
     }, 5000)
   })
-});
+    event.target.innerHTML = FULL_HEART;
+    event.target.style.color = "red";
+  } else {
+    event.target.innerHTML = EMPTY_HEART;
+  }
+}
+
+//Iterate over heart elements
+
+for(let el of likes){
+  el.addEventListener("click", heartchanger);
+}
 
 
 //------------------------------------------------------------------------------
