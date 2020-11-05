@@ -4,17 +4,34 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-document.addEventListener("DOMContentLoaded", () => {
-  //let modal = document.querySelector("#modal");
-  //modal.className = "hidden";
+window.addEventListener("DOMContentLoaded", (event) => {
+  let modal = document.querySelector("#modal");
   
+  document.addEventListener("click", (event) = {
+    
+    if(event.target && event.target.className === "like-glyph"){
+      mimicServerCall()
+      .then(value) => {
+        console.log(value)
+        if(event.target.innerHTML == EMPTY_HEART){
+          event.target.innerHTML = FULL_HEART;
+          event.target.classList.add("activated-heart");
+        } else {
+          event.target.innerHTML = EMPTY_HEART;
+          event.target.classList.remove("activated-heart");
+        }
+      }
+    }
+  })
+  .catch((error) => {
+    modal.classList.remove("hidden");
+    document.querySelector("#modal-message").innerHTML = error;
+    setTimeout(function(){
+      modal.classList.add("hidden")
+    }, 5000)
+  })
 });
 
-let likes = document.querySelectorAll(".like");
-
-likes.addEventListener("click", () => {
-  mimicServerCall();
-});
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
