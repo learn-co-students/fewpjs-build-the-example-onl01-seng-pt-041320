@@ -43,7 +43,7 @@ article.media-post > footer ul {
   border-radius: 10px;
   background-color: maroon;
   color: white;
-
+  /* display: none; */
   margin: 1em;
   padding: 1em;
 
