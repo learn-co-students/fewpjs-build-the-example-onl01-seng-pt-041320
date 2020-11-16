@@ -4,6 +4,12 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const modal = document.getElementById("modal").setAttribute("class", "hidden");
+
+// let hidden = document.createElement('.hidden')
+// let error = document.getElementById('modal')
+// hidden.appendChild(error)
+
 
 
 
